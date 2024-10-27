@@ -5,10 +5,9 @@ def custom_write(file_name, strings):
     file = open(file_name, 'a', encoding='utf-8')
 
     for string in strings:
-        number_str += 1
         start_str = file.tell()
         file.write(string + '\n')
-        strings_positions.update({(number_str, start_str): string})
+        strings_positions.update({(strings.index(string) + 1, start_str): string})
     file.close()
     return print(strings_positions)
 
